@@ -15,7 +15,7 @@ def execute_command(command: Dict[str, Any]) -> Dict[str, Any]:
 
     Args:
         command: {
-            "module": "storybook.project_manager",
+            "module": "storybook.web_integration",
             "function": "list_projects",
             "args": []
         }
@@ -40,32 +40,26 @@ def execute_command(command: Dict[str, Any]) -> Dict[str, Any]:
         # Get the function
         func = getattr(module, function_name)
 
-        # Execute the function
-        result = func(*args)
+        # Execute the function with positional and keyword args
+        if isinstance(args, list):
+            result = func(*args)
+        elif isinstance(args, dict):
+            result = func(**args)
+        else:
+            result = func(args)
 
-        # Convert to JSON-serializable format
-        if hasattr(result, "model_dump"):
-            # Pydantic model
-            result = result.model_dump()
-        elif hasattr(result, "__dict__"):
-            # Regular object
-            result = result.__dict__
-        elif isinstance(result, list):
-            # List of objects
-            result = [
-                item.model_dump() if hasattr(item, "model_dump") else item
-                for item in result
-            ]
-
+        # Result should already be JSON-serializable from web_integration
         return {
             "success": True,
             "data": result
         }
 
     except Exception as e:
+        import traceback
         return {
             "success": False,
-            "error": str(e)
+            "error": str(e),
+            "traceback": traceback.format_exc()
         }
 
 

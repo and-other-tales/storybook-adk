@@ -86,7 +86,7 @@ export class PythonBridge extends EventEmitter {
    */
   async listProjects(): Promise<Project[]> {
     return this.execute<Project[]>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'list_projects',
       args: []
     });
@@ -97,7 +97,7 @@ export class PythonBridge extends EventEmitter {
    */
   async getProject(projectId: string): Promise<Project> {
     return this.execute<Project>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'load_project',
       args: [projectId]
     });
@@ -108,7 +108,7 @@ export class PythonBridge extends EventEmitter {
    */
   async createProject(name: string, importFile?: string): Promise<Project> {
     return this.execute<Project>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'create_project',
       args: [name, importFile]
     });
@@ -119,7 +119,7 @@ export class PythonBridge extends EventEmitter {
    */
   async deleteProject(projectId: string): Promise<void> {
     return this.execute<void>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'delete_project',
       args: [projectId]
     });
@@ -130,7 +130,7 @@ export class PythonBridge extends EventEmitter {
    */
   async updateMetadata(projectId: string, metadata: Partial<ManuscriptMetadata>): Promise<Project> {
     return this.execute<Project>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'update_metadata',
       args: [projectId, metadata]
     });
@@ -141,7 +141,7 @@ export class PythonBridge extends EventEmitter {
    */
   async readManuscript(projectId: string): Promise<string> {
     return this.execute<string>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'read_manuscript',
       args: [projectId]
     });
@@ -152,7 +152,7 @@ export class PythonBridge extends EventEmitter {
    */
   async writeManuscript(projectId: string, content: string): Promise<void> {
     return this.execute<void>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'write_manuscript',
       args: [projectId, content]
     });
@@ -179,7 +179,7 @@ export class PythonBridge extends EventEmitter {
    */
   async exportProject(projectId: string, format: 'docx' | 'pdf' | 'markdown'): Promise<string> {
     return this.execute<string>({
-      module: 'storybook.project_manager',
+      module: 'storybook.web_integration',
       function: 'export_project',
       args: [projectId, format]
     });
@@ -190,8 +190,8 @@ export class PythonBridge extends EventEmitter {
    */
   async importDocument(projectId: string, filePath: string): Promise<void> {
     return this.execute<void>({
-      module: 'storybook.document_converter',
-      function: 'import_to_project',
+      module: 'storybook.web_integration',
+      function: 'import_document',
       args: [projectId, filePath]
     });
   }
