@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "storybook"
+version = "1.0.0"
+description = "AI-powered manuscript editing assistant using Claude Agent SDK"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Storybook Team"}
+]
+dependencies = [
+    "claude-agent-sdk>=0.1.0",
+    "rich>=13.7.0",
+    "python-docx>=1.1.0",
+    "PyPDF2>=3.0.0",
+    "pypdf>=3.17.0",
+    "pydantic>=2.5.0",
+    "prompt-toolkit>=3.0.43",
+    "anyio>=4.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+storybook = "storybook.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
