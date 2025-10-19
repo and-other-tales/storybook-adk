@@ -1,6 +1,6 @@
-# Storybook - AI-Powered Manuscript Editor
+# Storybook (Claude) - AI-Powered Manuscript Editor
 
-A sophisticated console application for fiction authors to edit and refine their manuscripts using Claude AI.
+A Claude ADK port of 'Storybook', a Manuscript Editor and Project Management Toolkit for Authors.
 
 ## Features
 
