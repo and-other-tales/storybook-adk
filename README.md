@@ -1,6 +1,6 @@
-# Storybook - AI-Powered Manuscript Editor
+# Storybook (Claude ADK)
 
-A sophisticated application for fiction authors to edit and refine their manuscripts using Claude AI. Available as both a **CLI application** and a **modern web interface**.
+An implementation of Storybook using Anthropic's Claude ADK, with CLI and Web App.
 
 ## 🎯 Choose Your Interface
 
