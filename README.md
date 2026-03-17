@@ -495,3 +495,5 @@ cd storybook-web && npm install  # Web
 **Available as CLI and Web Application** - Choose your preferred interface!
 
 **Built with Claude AI, Python, Next.js, and TypeScript**
+
+Copyright (c) 2025 PI & Other Tales (David James Lennon)
