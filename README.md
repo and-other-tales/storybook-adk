@@ -1,5 +1,7 @@
 # Storybook (Claude ADK)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 An implementation of Storybook using Anthropic's Claude ADK, with CLI and Web App.
 
 ## 🎯 Choose Your Interface
